@@ -1,0 +1,7 @@
+**/*.log
+**/.DS_Store
+*.
+*.json
+dist
+node_modules
+pnpm-lock.yaml
