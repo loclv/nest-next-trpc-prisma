@@ -25,4 +25,5 @@ pnpm add @nestjs/config --filter=server
 
 ## Reference
 
-[Building a full-stack, fully type-safe pnpm monorepo with NestJS, NextJS & tRPC](https://www.tomray.dev/nestjs-nextjs-trpc)
+- [Building a full-stack, fully type-safe pnpm monorepo with NestJS, NextJS & tRPC](https://www.tomray.dev/nestjs-nextjs-trpc)
+- [nestjs-prisma](https://www.tomray.dev/nestjs-prisma)
