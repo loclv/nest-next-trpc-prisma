@@ -7,12 +7,13 @@
 - Node.js framework: NestJS
 - End-to-end type-safe APIs: [tRPC](https://trpc.io/)
 - Frontend: NextJS
+- Style: Tailwind + [daisyUI](https://daisyui.com/)
 - Node.js package manager: pnpm
 - Monorepo: [pnpm workspace](https://pnpm.io/workspaces)
 
 ## 🥕 Getting Started
 
-Update `pnpm`:
+Update [pnpm](https://pnpm.io):
 
 ```sh
 pnpm i -g pnpm

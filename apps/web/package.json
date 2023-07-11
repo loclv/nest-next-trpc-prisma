@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "daisyui": "^3.2.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-prettier": "^4.2.1",

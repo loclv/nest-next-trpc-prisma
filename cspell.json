@@ -3,6 +3,7 @@
         "callout",
         "checkstyle",
         "commitlint",
+        "daisyui",
         "nestjs",
         "tailwindcss",
         "Trpc"
