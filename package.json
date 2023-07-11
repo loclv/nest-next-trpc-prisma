@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8.6.1",
+    "vscode": ">=1.79"
+  },
   "scripts": {
     "dev": "pnpm run --parallel dev",
     "build:server": "pnpm --filter server build",
