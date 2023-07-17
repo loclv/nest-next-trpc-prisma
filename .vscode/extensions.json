@@ -11,6 +11,8 @@
     "mikestead.dotenv",
     "foxundermoon.next-js",
     "Prisma.prisma",
-    "planbcoding.vscode-react-refactor"
+    "planbcoding.vscode-react-refactor",
+		"yoavbls.pretty-ts-errors",
+		"usernamehw.errorlens"
   ]
 }
