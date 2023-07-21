@@ -8,7 +8,7 @@
 - End-to-end type-safe APIs: [tRPC](https://trpc.io/)
 - Frontend: NextJS
 - Style: Tailwind + [daisyUI](https://daisyui.com/)
-- Node.js package manager: pnpm
+- Node.js package manager: [pnpm](https://pnpm.io)
 - Monorepo: [pnpm workspace](https://pnpm.io/workspaces)
 
 ## 🥕 Getting Started
