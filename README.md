@@ -44,13 +44,13 @@ pnpm dev
 ## 🛠️ Common Scripts
 
 ```sh
-pnpm build:server                 # Build NestJS server
-pnpm build:web                    # Build Next.js web app
-pnpm --filter server test         # Run server unit tests
-pnpm --filter server lint         # Lint server
-pnpm --filter web lint            # Lint web
+pnpm build:server # Build NestJS server
+pnpm build:web # Build Next.js web app
+pnpm --filter server test # Run server unit tests
+pnpm --filter server lint # Lint server
+pnpm --filter web lint # Lint web
 pnpm --filter web exec tsc --noEmit # Type-check web
-pnpm fmt                          # Format with Prettier
+pnpm fmt # Format with Prettier
 ```
 
 ## 🧚‍♀️ Reference

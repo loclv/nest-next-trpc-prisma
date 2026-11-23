@@ -36,20 +36,20 @@ App-specific commands:
 
 ## Architecture & Conventions
 
-- **TypeScript path aliases** (root `tsconfig.json`):
+- TypeScript path aliases (root `tsconfig.json`):
   - `@server/*` -> `./apps/server/src/*`
   - `@web/*` -> `./apps/web/*`
-- **End-to-end tRPC types**:
+- End-to-end tRPC types:
   - `apps/server/src/trpc/trpc.router.ts` defines `TrpcRouter.appRouter` and exports `type AppRouter`.
   - `apps/web/app/trpc.ts` imports `AppRouter` from `@server/trpc/trpc.router` to create `createTRPCProxyClient<AppRouter>`.
   - `apps/server/src/main.ts` enables CORS, mounts tRPC middleware at `/trpc`, and listens on `process.env.PORT || 4000`.
-- **Database**:
+- Database:
   - `apps/server/prisma/schema.prisma` defines `User` and `Tweet` models.
   - `apps/server/src/db/` provides `PrismaService`, `PrismaModule`, and a barrel export (`index.ts`).
-- **Frontend**:
+- Frontend:
   - `apps/web/app/` uses Next.js App Router (Server Components by default; add `'use client'` at the top of components using hooks such as `react-hook-form`).
   - `apps/web/pages/` contains additional Pages Router routes (`/about`, `/contact`).
-- **Web ESLint rules** (`apps/web/.eslintrc.json`):
+- Web ESLint rules (`apps/web/.eslintrc.json`):
   - `@typescript-eslint/no-explicit-any` and `@typescript-eslint/no-unused-vars` are errors.
   - `id-length`: minimum 2 characters (except `i`).
   - `line-comment-position`: comments must be placed `above` the line.

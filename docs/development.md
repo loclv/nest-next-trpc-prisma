@@ -10,15 +10,15 @@
 
 1. Install dependencies:
 
-   ```sh
+```sh
    pnpm install
-   ```
+```
 
 2. Configure frontend environment:
 
-   ```sh
+```sh
    cp ./apps/web/.env.local.example ./apps/web/.env.local
-   ```
+```
 
    Ensure `NEXT_PUBLIC_NESTJS_SERVER` is set (for example, `http://localhost:4000`). `apps/web/app/trpc.ts` throws an error if it is missing.
 
