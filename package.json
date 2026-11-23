@@ -1,7 +1,5 @@
 {
   "name": "nest-next-trpc-prisma",
-  "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "engines": {
     "node": ">=18",
@@ -16,8 +14,5 @@
     "start:web": "pnpm --filter web start",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
