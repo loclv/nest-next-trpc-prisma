@@ -6,32 +6,51 @@
 - ORM: Prisma
 - Node.js framework: NestJS
 - End-to-end type-safe APIs: [tRPC](https://trpc.io/)
-- Frontend: NextJS
-- Style: Tailwind + [daisyUI](https://daisyui.com/)
+- Frontend: Next.js 13 (App Router + Pages Router)
+- Forms: [React Hook Form](https://react-hook-form.com/)
+- Style: Tailwind CSS + [daisyUI](https://daisyui.com/)
 - Node.js package manager: [pnpm](https://pnpm.io)
 - Monorepo: [pnpm workspace](https://pnpm.io/workspaces)
 
+## 📁 Workspace Structure
+
+- `apps/server`: NestJS backend with tRPC (`/trpc`) and Prisma (`User`, `Tweet` models).
+- `apps/web`: Next.js frontend consuming `AppRouter` types from `@server/trpc/trpc.router`.
+- `docs/`: Project documentation ([Architecture](docs/architecture.md), [Development Guide](docs/development.md)).
+- `AGENTS.md`: Guidance for AI coding agents working in this repository.
+
 ## 🥕 Getting Started
 
-Update [pnpm](https://pnpm.io):
+Install/update [pnpm](https://pnpm.io) (`>=8.6.1`) and install dependencies:
 
 ```sh
 pnpm i -g pnpm
+pnpm install
 ```
 
-Develop:
+Configure environment variables:
 
 ```sh
-# create local environment variables
+# Frontend env (sets NEXT_PUBLIC_NESTJS_SERVER)
 cp ./apps/web/.env.local.example ./apps/web/.env.local
+```
 
+Ensure `apps/server/.env` configures `DATABASE_URL`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`, then start both apps:
+
+```sh
 pnpm dev
 ```
 
-If you want to install the `@nestjs/config` package. In the root of your directory, you can run:
+## 🛠️ Common Scripts
 
 ```sh
-pnpm add @nestjs/config --filter=server
+pnpm build:server                 # Build NestJS server
+pnpm build:web                    # Build Next.js web app
+pnpm --filter server test         # Run server unit tests
+pnpm --filter server lint         # Lint server
+pnpm --filter web lint            # Lint web
+pnpm --filter web exec tsc --noEmit # Type-check web
+pnpm fmt                          # Format with Prettier
 ```
 
 ## 🧚‍♀️ Reference
