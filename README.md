@@ -21,10 +21,10 @@
 
 ## 🥕 Getting Started
 
-Install/update [pnpm](https://pnpm.io) (`>=8.6.1`) and install dependencies:
+Install/update [pnpm](https://pnpm.io) and install dependencies:
 
 ```sh
-pnpm i -g pnpm
+pnpm self-update
 pnpm install
 ```
 
