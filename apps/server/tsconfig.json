@@ -6,6 +6,7 @@
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "target": "esnext",
     "sourceMap": true,
     "outDir": "./dist",
