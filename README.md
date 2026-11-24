@@ -59,3 +59,4 @@ pnpm format                          # Format codebase with bun fmt
 
 - [Building a full-stack, fully type-safe pnpm monorepo with NestJS, NextJS & tRPC](https://www.tomray.dev/nestjs-nextjs-trpc)
 - [nestjs-prisma](https://www.tomray.dev/nestjs-prisma)
+- [docs/features](docs/features) - for more information.
