@@ -1,18 +1,17 @@
 import { trpc } from "@web/app/trpc";
 
-import Navigation from "./components/Navigation";
+import MyForm from "./form";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
 	const { greeting } = await trpc.getUsers.query({
-		name: `Tom from backend 💚`,
+		name: "Tom from backend 💚",
 	});
 	return (
-		<>
+		<div className="space-y-4">
 			<div>{greeting}</div>
-			<button className="btn">daisyUI Button</button>
-			<Navigation />
-		</>
+			<MyForm />
+		</div>
 	);
 }

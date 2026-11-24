@@ -1,19 +1,24 @@
 import { AppRouter } from "@server/trpc/trpc.router";
-import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { createTRPCClient, httpBatchLink } from "@trpc/client";
+import superjson from "superjson";
 
-const NEXT_PUBLIC_NESTJS_SERVER = process.env.NEXT_PUBLIC_NESTJS_SERVER;
-
-if (
-	NEXT_PUBLIC_NESTJS_SERVER === undefined ||
-	NEXT_PUBLIC_NESTJS_SERVER === ""
-) {
-	throw new Error("app-err: NEXT_PUBLIC_NESTJS_SERVER is not defined!");
+export function getTrpcUrl() {
+	const serverUrl = process.env.NEXT_PUBLIC_NESTJS_SERVER;
+	if (!serverUrl) {
+		throw new Error("app-err: NEXT_PUBLIC_NESTJS_SERVER is not defined!");
+	}
+	return `${serverUrl}/trpc`;
 }
 
-export const trpc = createTRPCProxyClient<AppRouter>({
-	links: [
-		httpBatchLink({
-			url: `${NEXT_PUBLIC_NESTJS_SERVER}/trpc`,
-		}),
-	],
-});
+export function makeTrpcClient() {
+	return createTRPCClient<AppRouter>({
+		links: [
+			httpBatchLink({
+				url: getTrpcUrl(),
+				transformer: superjson,
+			}),
+		],
+	});
+}
+
+export const trpc = makeTrpcClient();

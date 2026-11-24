@@ -17,6 +17,7 @@
 		"allowUnusedLabels": false,
 		"paths": {
 			"@server/*": ["./apps/server/src/*"],
+			"@shared/*": ["./packages/shared/src/*"],
 			"@web/*": ["./apps/web/*"]
 		}
 	}

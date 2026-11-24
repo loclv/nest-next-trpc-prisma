@@ -1,15 +1,21 @@
 import { NestFactory } from "@nestjs/core";
+import { env } from "@server/config/env";
 import { TrpcRouter } from "@server/trpc/trpc.router";
 
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
-	app.enableCors();
+	app.enableShutdownHooks();
+
+	const allowedOrigins = env.ALLOWED_ORIGINS
+		? env.ALLOWED_ORIGINS.split(",").map((origin) => origin.trim())
+		: true;
+	app.enableCors({ origin: allowedOrigins });
 
 	const trpc = app.get(TrpcRouter);
 	trpc.applyMiddleware(app);
 
-	await app.listen(process.env.PORT || 4000);
+	await app.listen(env.PORT);
 }
 bootstrap();
