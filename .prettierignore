@@ -1,8 +1,0 @@
-**/*.log
-**/.DS_Store
-*.
-*.json
-apps/web/.next
-dist
-node_modules
-pnpm-lock.yaml

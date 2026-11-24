@@ -5,22 +5,28 @@ import * as trpcExpress from '@trpc/server/adapters/express';
 
 @Injectable()
 export class TrpcRouter {
-  constructor(private readonly trpc: TrpcService) {}
+  appRouter: ReturnType<TrpcRouter['createRouter']>;
 
-  appRouter = this.trpc.router({
-    getUsers: this.trpc.procedure
-      .input(
-        z.object({
-          name: z.string(),
+  constructor(private readonly trpc: TrpcService) {
+    this.appRouter = this.createRouter();
+  }
+
+  private createRouter() {
+    return this.trpc.router({
+      getUsers: this.trpc.procedure
+        .input(
+          z.object({
+            name: z.string(),
+          }),
+        )
+        .query(({ input }) => {
+          const { name } = input;
+          return {
+            greeting: `Hello ${name ? name : `Bilbo`}`,
+          };
         }),
-      )
-      .query(({ input }) => {
-        const { name } = input;
-        return {
-          greeting: `Hello ${name ? name : `Bilbo`}`,
-        };
-      }),
-  });
+    });
+  }
 
   async applyMiddleware(app: INestApplication) {
     app.use(

@@ -3,12 +3,12 @@
 ## 🍰 Tech stack
 
 - DB: PostgreSQL
-- ORM: Prisma
-- Node.js framework: NestJS
-- End-to-end type-safe APIs: [tRPC](https://trpc.io/)
-- Frontend: Next.js 13 (App Router + Pages Router)
+- ORM: Prisma 7
+- Node.js framework: NestJS 12
+- End-to-end type-safe APIs: [tRPC 11](https://trpc.io/)
+- Frontend: Next.js 16 + React 19 (App Router + Pages Router)
 - Forms: [React Hook Form](https://react-hook-form.com/)
-- Style: Tailwind CSS + [daisyUI](https://daisyui.com/)
+- Style: Tailwind CSS 4 + [daisyUI 5](https://daisyui.com/)
 - Node.js package manager: [pnpm](https://pnpm.io)
 - Monorepo: [pnpm workspace](https://pnpm.io/workspaces)
 
@@ -44,13 +44,11 @@ pnpm dev
 ## 🛠️ Common Scripts
 
 ```sh
-pnpm build:server # Build NestJS server
-pnpm build:web # Build Next.js web app
-pnpm --filter server test # Run server unit tests
-pnpm --filter server lint # Lint server
-pnpm --filter web lint # Lint web
+pnpm build:server                   # Build NestJS server
+pnpm build:web                      # Build Next.js web app
+pnpm --filter server test           # Run server unit tests
+pnpm --filter server test:e2e       # Run server e2e tests
 pnpm --filter web exec tsc --noEmit # Type-check web
-pnpm fmt # Format with Prettier
 ```
 
 ## 🧚‍♀️ Reference

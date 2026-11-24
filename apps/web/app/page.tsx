@@ -1,6 +1,8 @@
 import { trpc } from '@web/app/trpc';
 import Navigation from './components/Navigation';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const { greeting } = await trpc.getUsers.query({
     name: `Tom from backend 💚`,

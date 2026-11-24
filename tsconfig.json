@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "incremental": true,

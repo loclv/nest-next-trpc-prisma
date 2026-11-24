@@ -1,12 +1,12 @@
 # Architecture
 
-This repository is a `pnpm` workspace monorepo combining a NestJS backend and a Next.js 13 frontend with end-to-end type safety via tRPC and PostgreSQL access via Prisma.
+This repository is a `pnpm` workspace monorepo combining a NestJS 12 backend and a Next.js 16 (React 19) frontend with end-to-end type safety via tRPC 11 and PostgreSQL access via Prisma 7.
 
 ## Workspace Layout
 
-- `apps/server`: NestJS 10 API server with tRPC (`/trpc`) and Prisma (`4.16.2`).
-- `apps/web`: Next.js 13 frontend with Tailwind CSS, daisyUI, tRPC client, and `react-hook-form`.
-- `tsconfig.json`: Root TypeScript configuration defining shared path aliases:
+- `apps/server`: NestJS 12 API server with tRPC 11 (`/trpc`) and Prisma 7.
+- `apps/web`: Next.js 16 + React 19 frontend with Tailwind CSS 4, daisyUI 5, tRPC 11 client, and `react-hook-form`.
+- `tsconfig.json`: Root TypeScript 6 configuration defining shared path aliases:
   - `@server/*` -> `./apps/server/src/*`
   - `@web/*` -> `./apps/web/*`
 
@@ -20,7 +20,8 @@ This repository is a `pnpm` workspace monorepo combining a NestJS backend and a 
 ## Database Layer
 
 - `apps/server/prisma/schema.prisma` defines the PostgreSQL datasource and `User` / `Tweet` models.
-- `apps/server/src/db/prisma.service.ts` extends `PrismaClient` and connects on `OnModuleInit`.
+- `apps/server/prisma.config.ts` loads `.env` and configures the Prisma datasource URL from `DATABASE_URL`.
+- `apps/server/src/db/prisma.service.ts` extends `PrismaClient` with `@prisma/adapter-pg` and manages connection lifecycle via `OnModuleInit` / `OnModuleDestroy`.
 - `apps/server/src/db/prisma.module.ts` exports `PrismaService`.
 - `apps/server/src/db/index.ts` re-exports `./prisma.service`.
 

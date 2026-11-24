@@ -2,11 +2,14 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": true,
+    "declaration": false,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "target": "ES2021",
     "sourceMap": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDir": ".",
+    "types": ["node", "jest"]
   }
 }

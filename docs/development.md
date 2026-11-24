@@ -10,15 +10,15 @@
 
 1. Install dependencies:
 
-```sh
+   ```sh
    pnpm install
-```
+   ```
 
 2. Configure frontend environment:
 
-```sh
+   ```sh
    cp ./apps/web/.env.local.example ./apps/web/.env.local
-```
+   ```
 
    Ensure `NEXT_PUBLIC_NESTJS_SERVER` is set (for example, `http://localhost:4000`). `apps/web/app/trpc.ts` throws an error if it is missing.
 
@@ -36,9 +36,10 @@ Start PostgreSQL with Docker Compose (from `apps/server`):
 docker compose up -d
 ```
 
-Run Prisma migrations and Studio from the repository root:
+Generate Prisma Client, run migrations, and open Studio from the repository root:
 
 ```sh
+pnpm --filter server exec prisma generate
 pnpm --filter server migrate
 pnpm --filter server studio
 ```
@@ -58,34 +59,13 @@ pnpm start:server
 pnpm start:web
 ```
 
-## Testing, Linting & Formatting
+## Testing & Type-Checking
 
 ```sh
-# Server unit tests and lint
+# Server unit and e2e tests
 pnpm --filter server test
-pnpm --filter server lint
-
-# Server e2e tests
 pnpm --filter server test:e2e
 
-# Web lint and TypeScript check
-pnpm --filter web lint
+# Web TypeScript check
 pnpm --filter web exec tsc --noEmit
-
-# Prettier formatting
-pnpm fmt
-pnpm fmt.check
 ```
-
-## Web ESLint Conventions
-
-`apps/web/.eslintrc.json` enforces:
-
-- `@typescript-eslint/no-explicit-any` and `@typescript-eslint/no-unused-vars` as errors.
-- `id-length`: minimum 2 characters (except `i`).
-- `line-comment-position`: comments must be placed `above` the line.
-- `@typescript-eslint/naming-convention`:
-  - Interfaces prefixed with `I`
-  - Type parameters prefixed with `T`
-  - Booleans prefixed with `is`, `should`, `has`, `can`, `did`, `will`, or `was`
-  - Variables in `PascalCase`, `camelCase`, or `UPPER_CASE`
