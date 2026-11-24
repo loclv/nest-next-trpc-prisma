@@ -1,29 +1,29 @@
 {
-  "name": "web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@trpc/client": "^11.30.3",
-    "@trpc/server": "^11.30.3",
-    "@types/node": "^26.6.6",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0",
-    "autoprefixer": "10.7.0",
-    "next": "16.4.6",
-    "postcss": "8.5.33",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
-    "react-hook-form": "^7.92.0",
-    "tailwindcss": "4.3.5",
-    "typescript": "^6.0.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.5",
-    "daisyui": "^5.8.2"
-  }
+	"name": "web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@trpc/client": "^11.30.3",
+		"@trpc/server": "^11.30.3",
+		"@types/node": "^26.6.6",
+		"@types/react": "19.3.0",
+		"@types/react-dom": "19.3.0",
+		"autoprefixer": "10.7.0",
+		"next": "16.4.6",
+		"postcss": "8.5.33",
+		"react": "19.3.1",
+		"react-dom": "19.3.1",
+		"react-hook-form": "^7.92.0",
+		"tailwindcss": "4.3.5",
+		"typescript": "^6.0.3"
+	},
+	"devDependencies": {
+		"@tailwindcss/postcss": "^4.3.5",
+		"daisyui": "^5.8.2"
+	}
 }

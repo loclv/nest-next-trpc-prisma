@@ -1,9 +1,9 @@
 packages:
-  - 'apps/*'
+  - "apps/*"
 
 allowBuilds:
-  '@parcel/watcher': true
-  '@prisma/engines': true
+  "@parcel/watcher": true
+  "@prisma/engines": true
   prisma: true
 
 minimumReleaseAge: 0

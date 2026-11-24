@@ -1,19 +1,19 @@
-import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
-import { AppRouter } from '@server/trpc/trpc.router';
+import { AppRouter } from "@server/trpc/trpc.router";
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
 
 const NEXT_PUBLIC_NESTJS_SERVER = process.env.NEXT_PUBLIC_NESTJS_SERVER;
 
 if (
-  NEXT_PUBLIC_NESTJS_SERVER === undefined ||
-  NEXT_PUBLIC_NESTJS_SERVER === ''
+	NEXT_PUBLIC_NESTJS_SERVER === undefined ||
+	NEXT_PUBLIC_NESTJS_SERVER === ""
 ) {
-  throw new Error('app-err: NEXT_PUBLIC_NESTJS_SERVER is not defined!');
+	throw new Error("app-err: NEXT_PUBLIC_NESTJS_SERVER is not defined!");
 }
 
 export const trpc = createTRPCProxyClient<AppRouter>({
-  links: [
-    httpBatchLink({
-      url: `${NEXT_PUBLIC_NESTJS_SERVER}/trpc`,
-    }),
-  ],
+	links: [
+		httpBatchLink({
+			url: `${NEXT_PUBLIC_NESTJS_SERVER}/trpc`,
+		}),
+	],
 });

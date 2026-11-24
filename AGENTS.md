@@ -21,6 +21,7 @@ Run from the repository root:
 - `pnpm dev`: Start `server` and `web` in parallel.
 - `pnpm build:server` / `pnpm build:web`: Build individual apps.
 - `pnpm start:server` / `pnpm start:web`: Run production builds.
+- `pnpm format` / `pnpm format:check`: Format all files or check formatting with `bun fmt` (configured in `bunfig.toml` with tabs).
 
 App-specific commands:
 
@@ -51,5 +52,5 @@ App-specific commands:
 After making changes, verify with below command and use git commit codes:
 
 ```sh
-pnpm --filter server test && pnpm --filter server test:e2e && pnpm build:server && pnpm --filter web exec tsc --noEmit && pnpm build:web
+pnpm --filter server test && pnpm --filter server test:e2e && pnpm build:server && pnpm --filter web exec tsc --noEmit && pnpm build:web && bun fmt --check
 ```

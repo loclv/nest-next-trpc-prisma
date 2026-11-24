@@ -1,27 +1,23 @@
 {
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "incremental": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "exactOptionalPropertyTypes": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "paths": {
-      "@server/*": [
-        "./apps/server/src/*"
-      ],
-      "@web/*": [
-        "./apps/web/*"
-      ]
-    }
-  }
+	"compilerOptions": {
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"incremental": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"exactOptionalPropertyTypes": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"paths": {
+			"@server/*": ["./apps/server/src/*"],
+			"@web/*": ["./apps/web/*"]
+		}
+	}
 }

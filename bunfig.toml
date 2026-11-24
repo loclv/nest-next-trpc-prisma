@@ -1,0 +1,6 @@
+[fmt]
+useTabs = true
+sortImports = true
+sortTailwindcss = true
+sortPackageJson = true
+ignorePatterns = ["tsconfig.tsbuildinfo", "apps/server/prisma/migrations/**"]

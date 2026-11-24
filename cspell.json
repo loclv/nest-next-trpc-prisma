@@ -1,11 +1,11 @@
 {
-    "words": [
-        "callout",
-        "checkstyle",
-        "commitlint",
-        "daisyui",
-        "nestjs",
-        "tailwindcss",
-        "Trpc"
-    ]
+	"words": [
+		"callout",
+		"checkstyle",
+		"commitlint",
+		"daisyui",
+		"nestjs",
+		"tailwindcss",
+		"Trpc"
+	]
 }

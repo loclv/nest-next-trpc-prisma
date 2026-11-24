@@ -1,17 +1,18 @@
-import { trpc } from '@web/app/trpc';
-import Navigation from './components/Navigation';
+import { trpc } from "@web/app/trpc";
 
-export const dynamic = 'force-dynamic';
+import Navigation from "./components/Navigation";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { greeting } = await trpc.getUsers.query({
-    name: `Tom from backend 💚`,
-  });
-  return (
-    <>
-      <div>{greeting}</div>
-      <button className="btn">daisyUI Button</button>
-      <Navigation />
-    </>
-  );
+	const { greeting } = await trpc.getUsers.query({
+		name: `Tom from backend 💚`,
+	});
+	return (
+		<>
+			<div>{greeting}</div>
+			<button className="btn">daisyUI Button</button>
+			<Navigation />
+		</>
+	);
 }

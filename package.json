@@ -1,17 +1,19 @@
 {
-  "name": "nest-next-trpc-prisma",
-  "main": "index.js",
-  "engines": {
-    "node": ">=24.22.1",
-    "pnpm": ">=12.0.0",
-    "vscode": ">=1.79"
-  },
-  "packageManager": "pnpm@12.23.0",
-  "scripts": {
-    "dev": "pnpm run --parallel dev",
-    "build:server": "pnpm --filter server build",
-    "build:web": "pnpm --filter web build",
-    "start:server": "pnpm --filter server start:prod",
-    "start:web": "pnpm --filter web start"
-  }
+	"name": "nest-next-trpc-prisma",
+	"main": "index.js",
+	"scripts": {
+		"dev": "pnpm run --parallel dev",
+		"build:server": "pnpm --filter server build",
+		"build:web": "pnpm --filter web build",
+		"start:server": "pnpm --filter server start:prod",
+		"start:web": "pnpm --filter web start",
+		"format": "bun fmt",
+		"format:check": "bun fmt --check"
+	},
+	"engines": {
+		"node": ">=24.22.1",
+		"pnpm": ">=12.0.0",
+		"vscode": ">=1.79"
+	},
+	"packageManager": "pnpm@12.23.0"
 }

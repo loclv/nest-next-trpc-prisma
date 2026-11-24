@@ -1,41 +1,41 @@
-import { INestApplication, Injectable } from '@nestjs/common';
-import { z } from 'zod';
-import { TrpcService } from '@server/trpc/trpc.service';
-import * as trpcExpress from '@trpc/server/adapters/express';
+import { INestApplication, Injectable } from "@nestjs/common";
+import { TrpcService } from "@server/trpc/trpc.service";
+import * as trpcExpress from "@trpc/server/adapters/express";
+import { z } from "zod";
 
 @Injectable()
 export class TrpcRouter {
-  appRouter: ReturnType<TrpcRouter['createRouter']>;
+	appRouter: ReturnType<TrpcRouter["createRouter"]>;
 
-  constructor(private readonly trpc: TrpcService) {
-    this.appRouter = this.createRouter();
-  }
+	constructor(private readonly trpc: TrpcService) {
+		this.appRouter = this.createRouter();
+	}
 
-  private createRouter() {
-    return this.trpc.router({
-      getUsers: this.trpc.procedure
-        .input(
-          z.object({
-            name: z.string(),
-          }),
-        )
-        .query(({ input }) => {
-          const { name } = input;
-          return {
-            greeting: `Hello ${name ? name : `Bilbo`}`,
-          };
-        }),
-    });
-  }
+	private createRouter() {
+		return this.trpc.router({
+			getUsers: this.trpc.procedure
+				.input(
+					z.object({
+						name: z.string(),
+					}),
+				)
+				.query(({ input }) => {
+					const { name } = input;
+					return {
+						greeting: `Hello ${name ? name : `Bilbo`}`,
+					};
+				}),
+		});
+	}
 
-  async applyMiddleware(app: INestApplication) {
-    app.use(
-      `/trpc`,
-      trpcExpress.createExpressMiddleware({
-        router: this.appRouter,
-      }),
-    );
-  }
+	async applyMiddleware(app: INestApplication) {
+		app.use(
+			`/trpc`,
+			trpcExpress.createExpressMiddleware({
+				router: this.appRouter,
+			}),
+		);
+	}
 }
 
 export type AppRouter = TrpcRouter[`appRouter`];
