@@ -11,6 +11,7 @@
 - Style: Tailwind CSS 4 + [daisyUI 5](https://daisyui.com/)
 - Runtime / Formatter / Test runner: [Bun](https://bun.sh/)
 - Monorepo: [pnpm workspace](https://pnpm.io/workspaces)
+- PostgreSQL
 
 ## 📁 Workspace Structure
 
