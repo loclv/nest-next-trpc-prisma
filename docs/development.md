@@ -2,8 +2,9 @@
 
 ## Prerequisites
 
-- Node.js `>=18`
-- `pnpm >=8.6.1`
+- Node.js `>=24.22.1`
+- `pnpm >=12.0.0`
+- [Bun](https://bun.sh/) `>=1.4` (test runner, formatter, and ESM server runtime)
 - PostgreSQL (or Docker to run `apps/server/docker-compose.yml`)
 
 ## Environment Setup
@@ -27,6 +28,8 @@
    - `DATABASE_URL`
    - `POSTGRES_USER`
    - `POSTGRES_PASSWORD`
+   - `PORT` (optional, defaults to `4000`)
+   - `ALLOWED_ORIGINS` (optional comma-separated list of CORS origins)
 
 ## Database
 
@@ -59,13 +62,18 @@ pnpm start:server
 pnpm start:web
 ```
 
-## Testing & Type-Checking
+## Testing, Formatting & Type-Checking
 
 ```sh
-# Server unit and e2e tests
+# Server unit and e2e tests (bun:test)
 pnpm --filter server test
 pnpm --filter server test:e2e
 
-# Web TypeScript check
-pnpm --filter web exec tsc --noEmit
+# Type-check server and web
+pnpm --filter server exec tsc --noEmit
+pnpm --filter web exec next typegen && pnpm --filter web exec tsc --noEmit
+
+# Format and check with bun fmt
+pnpm format
+pnpm format:check
 ```
