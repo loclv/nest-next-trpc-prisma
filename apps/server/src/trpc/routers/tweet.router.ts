@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { createTweetSchema } from "@repo/shared";
+import { createTweetSchema, paginationInputSchema } from "@repo/shared";
 import { PrismaService } from "@server/db";
 import { TrpcService } from "@server/trpc/trpc.service";
 
@@ -12,20 +12,38 @@ export class TweetRouter {
 
 	createRouter() {
 		return this.trpc.router({
-			list: this.trpc.procedure.query(() => {
-				return this.prisma.tweet.findMany({
-					orderBy: { createdAt: "desc" },
-					include: {
-						user: true,
-					},
-				});
-			}),
-			create: this.trpc.procedure
+			list: this.trpc.procedure
+				.input(paginationInputSchema)
+				.query(async ({ input }) => {
+					const take = input?.take ?? 10;
+					const cursor = input?.cursor;
+
+					const rows = await this.prisma.tweet.findMany({
+						take: take + 1,
+						...(cursor ? { cursor: { id: cursor } } : {}),
+						orderBy: { id: "desc" },
+						include: {
+							user: true,
+						},
+					});
+
+					let nextCursor: number | undefined;
+					if (rows.length > take) {
+						const nextItem = rows.pop();
+						nextCursor = nextItem?.id;
+					}
+
+					return {
+						items: rows,
+						nextCursor,
+					};
+				}),
+			create: this.trpc.protectedProcedure
 				.input(createTweetSchema)
-				.mutation(({ input }) => {
+				.mutation(({ ctx, input }) => {
 					return this.prisma.tweet.create({
 						data: {
-							userId: input.userId,
+							userId: ctx.user.id,
 							content: input.content,
 						},
 						include: {

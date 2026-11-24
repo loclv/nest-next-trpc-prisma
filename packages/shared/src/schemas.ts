@@ -4,6 +4,13 @@ export const greetingInputSchema = z.object({
 	name: z.string().trim().optional(),
 });
 
+export const paginationInputSchema = z
+	.object({
+		take: z.number().int().min(1).max(50).default(10),
+		cursor: z.number().int().positive().optional(),
+	})
+	.optional();
+
 export const createUserSchema = z.object({
 	username: z
 		.string()
@@ -13,7 +20,6 @@ export const createUserSchema = z.object({
 });
 
 export const createTweetSchema = z.object({
-	userId: z.number().int().positive(),
 	content: z
 		.string()
 		.trim()
@@ -22,5 +28,6 @@ export const createTweetSchema = z.object({
 });
 
 export type GreetingInput = z.infer<typeof greetingInputSchema>;
+export type PaginationInput = z.infer<typeof paginationInputSchema>;
 export type CreateUserInput = z.infer<typeof createUserSchema>;
 export type CreateTweetInput = z.infer<typeof createTweetSchema>;

@@ -9,6 +9,7 @@
 		"start:debug": "nest start --exec bun --debug --watch",
 		"start:prod": "bun dist/main.js",
 		"migrate": "prisma migrate dev",
+		"seed": "bun prisma/seed.ts",
 		"studio": "prisma studio",
 		"test": "bun test src",
 		"test:watch": "bun --watch test src",

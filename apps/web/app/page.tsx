@@ -1,6 +1,6 @@
 import { trpc } from "@web/app/trpc";
 
-import MyForm from "./form";
+import Dashboard from "./dashboard";
 
 export const dynamic = "force-dynamic";
 
@@ -9,9 +9,9 @@ export default async function Home() {
 		name: "Tom from backend 💚",
 	});
 	return (
-		<div className="space-y-4">
-			<div>{greeting}</div>
-			<MyForm />
+		<div className="space-y-6">
+			<div className="text-lg font-medium">{greeting}</div>
+			<Dashboard />
 		</div>
 	);
 }

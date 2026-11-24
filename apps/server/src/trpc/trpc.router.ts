@@ -1,5 +1,6 @@
 import { INestApplication, Injectable } from "@nestjs/common";
 import { greetingInputSchema } from "@repo/shared";
+import { AuthRouter } from "@server/trpc/routers/auth.router";
 import { TweetRouter } from "@server/trpc/routers/tweet.router";
 import { UserRouter } from "@server/trpc/routers/user.router";
 import { createContext } from "@server/trpc/trpc.context";
@@ -12,6 +13,7 @@ export class TrpcRouter {
 
 	constructor(
 		private readonly trpc: TrpcService,
+		private readonly authRouter: AuthRouter,
 		private readonly userRouter: UserRouter,
 		private readonly tweetRouter: TweetRouter,
 	) {
@@ -28,6 +30,7 @@ export class TrpcRouter {
 						greeting: `Hello ${name ? name : "Bilbo"}`,
 					};
 				}),
+			auth: this.authRouter.createRouter(),
 			user: this.userRouter.createRouter(),
 			tweet: this.tweetRouter.createRouter(),
 		});
