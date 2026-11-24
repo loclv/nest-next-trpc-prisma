@@ -2,10 +2,11 @@
   "name": "nest-next-trpc-prisma",
   "main": "index.js",
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8.6.1",
+    "node": ">=24.22.1",
+    "pnpm": ">=12.0.0",
     "vscode": ">=1.79"
   },
+  "packageManager": "pnpm@12.23.0",
   "scripts": {
     "dev": "pnpm run --parallel dev",
     "build:server": "pnpm --filter server build",

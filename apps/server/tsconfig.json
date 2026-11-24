@@ -6,10 +6,10 @@
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "target": "ES2021",
+    "target": "esnext",
     "sourceMap": true,
     "outDir": "./dist",
     "rootDir": ".",
-    "types": ["node", "jest"]
+    "types": ["node", "bun"]
   }
 }

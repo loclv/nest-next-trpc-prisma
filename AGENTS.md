@@ -11,7 +11,6 @@ Guidance for AI coding agents working in this repository.
 
 ## Environment & Prerequisites
 
-- Node.js `>=18`, `pnpm >=8.6.1`.
 - Frontend env: copy `apps/web/.env.local.example` to `apps/web/.env.local` (`NEXT_PUBLIC_NESTJS_SERVER` must be set or `apps/web/app/trpc.ts` will throw).
 - Backend env: `apps/server/.env` configures `DATABASE_URL`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` (used by `apps/server/docker-compose.yml` and `apps/server/prisma.config.ts`).
 
@@ -25,8 +24,8 @@ Run from the repository root:
 
 App-specific commands:
 
-- `pnpm --filter server test`: Run Jest unit tests (`apps/server/src/**/*.spec.ts`).
-- `pnpm --filter server test:e2e`: Run NestJS e2e tests (`apps/server/test/jest-e2e.json`).
+- `pnpm --filter server test`: Run `bun:test` unit tests (`apps/server/src/**/*.spec.ts`).
+- `pnpm --filter server test:e2e`: Run NestJS e2e tests (`apps/server/test/app.e2e-spec.ts`).
 - `pnpm --filter server migrate`: Run `prisma migrate dev`.
 - `pnpm --filter server studio`: Open Prisma Studio.
 - `pnpm --filter web exec tsc --noEmit`: Type-check `apps/web`.
@@ -47,9 +46,9 @@ App-specific commands:
   - `apps/web/app/` uses Next.js App Router (Server Components by default; add `'use client'` at the top of components using hooks such as `react-hook-form`).
   - `apps/web/pages/` contains additional Pages Router routes (`/about`, `/contact`).
 
-## Verification
+## Rules
 
-After making changes, verify with:
+After making changes, verify with below command and use git commit codes:
 
 ```sh
 pnpm --filter server test && pnpm --filter server test:e2e && pnpm build:server && pnpm --filter web exec tsc --noEmit && pnpm build:web
